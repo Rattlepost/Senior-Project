@@ -1,5 +1,4 @@
 import customtkinter as ctk
-import random
 import npcGenerator as npc
 import dungeonGen as dg
 
@@ -9,11 +8,14 @@ class App(ctk.CTk):
         self.title('Nexus Generator')
         self.geometry('1000x600')
 
-        #widgets
+        # Create and place the left and right frames
         self.right_frame = RightFrame(self)
         self.left_frame = LeftFrame(self, self.right_frame)
 
-        #run
+        self.left_frame.place(x=0, y=0, relheight=1.0, relwidth=0.3)
+        self.right_frame.place(x=300, y=0, relheight=1.0, relwidth=0.7)
+
+        # Run the main loop
         self.mainloop()
 
 class LeftFrame(ctk.CTkFrame):
