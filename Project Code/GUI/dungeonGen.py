@@ -40,4 +40,3 @@ def generate_dungeon(num_rooms):
                     break
         
     return dungeon
-

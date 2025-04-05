@@ -1,22 +1,20 @@
 import customtkinter as ctk
 import npcGenerator as npc
 
-
 class NpcFrame(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
         
         self.generator = npc.NPCGenerator()
-
         self.create_widgets()
         self.create_layout()
 
     def create_widgets(self):
-        self.health_label = ctk.CTkLabel(self, text='Health Points: ' + str(self.generator.healthPoints))
-        self.name_label = ctk.CTkLabel(self, text='Name: ' + self.generator.name)
-        self.race_label = ctk.CTkLabel(self, text='Race: ' + self.generator.race)
-        self.class_label = ctk.CTkLabel(self, text='Class: ' + self.generator.class_)
-        self.alignment_label = ctk.CTkLabel(self, text='Alignment: ' + self.generator.alignment)
+        self.health_label = ctk.CTkLabel(self, text='Health Points: ' + str(self.generator.healthPoints), anchor='w')
+        self.name_label = ctk.CTkLabel(self, text='Name: ' + self.generator.name, anchor='w')
+        self.race_label = ctk.CTkLabel(self, text='Race: ' + self.generator.race, anchor='w')
+        self.class_label = ctk.CTkLabel(self, text='Class: ' + self.generator.class_, anchor='w')
+        self.alignment_label = ctk.CTkLabel(self, text='Alignment: ' + self.generator.alignment, anchor='w')
         self.gen_button = ctk.CTkButton(self, text='Generate', command=self.generate)
 
     def create_layout(self):
