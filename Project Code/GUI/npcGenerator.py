@@ -1,18 +1,18 @@
 import random
 
 class NPCGenerator:
-    def __init__(self):
+    def __init__(self): # Initializer
         self.healthPoints = 0
         self.name = ''
         self.race = ''
         self.class_ = ''
         self.alignment = ''
 
-    def generate_health(self):
+    def generate_health(self): # Generate a random health point value between 15 and 70
         self.healthPoints = random.randint(15, 70)
         return self.healthPoints
 
-    def generate_name(self):
+    def generate_name(self): # Generate a random name by combining a first and last name from text files
         with open('Project Code/GUI/Data Files/first-names.txt', 'r') as file_object:
             list_first_names = file_object.readlines()
             first_name = random.choice(list_first_names).strip()
@@ -22,19 +22,19 @@ class NPCGenerator:
         self.name = first_name + ' ' + last_name
         return self.name
 
-    def generate_race(self):
+    def generate_race(self): # Generates a random race from a text file
         with open('Project Code/GUI/Data Files/dnd-races.txt', 'r') as file_object:
             list_races = file_object.readlines()
             self.race = random.choice(list_races).strip()
         return self.race
 
-    def generate_class(self):
+    def generate_class(self): # Generates a random class from a text file
         with open('Project Code/GUI/Data Files/dnd-classes.txt', 'r') as file_object:
             list_classes = file_object.readlines()
             self.class_ = random.choice(list_classes).strip()
         return self.class_
 
-    def generate_alignment(self):
+    def generate_alignment(self): # Generates a random alignment from a text file
         with open('Project Code/GUI/Data Files/dnd-alignments.txt', 'r') as file_object:
             list_alignments = file_object.readlines()
             self.alignment = random.choice(list_alignments).strip()
