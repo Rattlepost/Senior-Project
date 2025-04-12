@@ -3,6 +3,7 @@ import NpcFrame as NpcFr
 import DungeonFrame as DunFr
 import NotesFrame as NotesFr
 import TrackerFrame as TrackerFr
+import DiceFrame as DiceFr
 
 class App(ctk.CTk):
     def __init__(self): # Initializer
@@ -42,11 +43,15 @@ class LeftFrame(ctk.CTkFrame): #contains the bottons to switch between the diffe
         self.button_npc = ctk.CTkButton(self, 
                                         text="NPC Generator", 
                                         command=lambda: right_frame.swap_frame('npc'))
+        self.button_dice = ctk.CTkButton(self,
+                                         text="Dice Roller", 
+                                        command=lambda: right_frame.swap_frame('dice'))
 
     def create_layout(self): #creates the layout for the buttons in the left frame
         self.button_dungeon.pack(pady=10)
         self.button_tracker.pack(pady=10)
         self.button_npc.pack(pady=10)
+        self.button_dice.pack(pady=10)
 
 class RightFrame(ctk.CTkFrame): #contains the main content of the app, the different pages
     def __init__(self, master):
@@ -61,12 +66,14 @@ class RightFrame(ctk.CTkFrame): #contains the main content of the app, the diffe
         self.tracker = TrackerFr.TrackerFrame(self)
         self.character = NpcFr.NpcFrame(self)
         self.dungeon = DunFr.DungeonFrame(self, num_rooms=5)  # Sets the defult number of rooms to 5
+        self.dice = DiceFr.DiceRoller(self)
 
     def swap_frame(self, frame): #function to switch between the different pages of the app
         # Hide all swappable frames
         self.tracker.pack_forget()
         self.character.pack_forget()
         self.dungeon.pack_forget()
+        self.dice.pack_forget()
 
         # Show the selected frame
         if frame == 'dungeon':
@@ -75,5 +82,7 @@ class RightFrame(ctk.CTkFrame): #contains the main content of the app, the diffe
             self.tracker.pack(side='left', fill='both', expand=True, padx=10, pady=10)
         elif frame == 'npc':
             self.character.pack(side='left', fill='both', expand=True, padx=10, pady=10)
+        elif frame == 'dice':
+            self.dice.pack(side='left', fill='both', expand=True, padx=10, pady=10)
         
 App()
