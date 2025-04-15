@@ -91,15 +91,15 @@ class DungeonFrame(ctk.CTkFrame):
     def generate_room_descriptions(self, dungeon):  # Generate room descriptions using AI
         descriptions = []
         for room in dungeon:
-            prompt = f"Simply and shortly describe a dungeon room with the following specifications:\n" \
-                    f"Shape: {room.shape}\n" \
-                    f"Number of connections: {len(room.connections)}\n" \
-                    f"A number of traps between 0 and 3\n" \
-                    f"A number of monsters between 0 and 4\n" \
-                    f"A number of treasures between 0 and 2\n" \
-                    f"The traps, monsters, and treasure amounts in a room should not exceed 5 added together\n" \
-                    f"A room with monsters should not have traps\n" \
-                       
+            prompt = f"""
+                Simply and shortly describe a dungeon room with the following specifications:
+                Shape: {room.shape}.
+                Number of connections: {len(room.connections)}.
+                Traps: 0 to 3.
+                Monsters: 0 to 4.
+                Treasures: 0 to 2.
+                The traps, monsters, and treasure amounts in a room should not exceed 5 added together.
+                """   
 
             try:
                 response = self.client.chat.completions.create(

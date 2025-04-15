@@ -2,6 +2,7 @@ import customtkinter as ctk
 import CharacterFrame as NPC
 import json
 import os
+from threading import Thread
 
 class TrackerFrame(ctk.CTkFrame):
     def __init__(self, master): # Initializer
@@ -43,7 +44,8 @@ class TrackerFrame(ctk.CTkFrame):
             "wis": 0,
             "cha": 0,
         }
-        self.create_new_frame(npc_data)
+        thread_npc_gen = Thread(target=self.create_new_frame(npc_data))
+        thread_npc_gen.start()
         self.save_npcs()  # Save the new NPC to the file
 
     def create_new_frame(self, npc_data): # Creates a new NPC frame and adds it to the container
