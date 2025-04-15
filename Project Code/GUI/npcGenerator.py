@@ -1,4 +1,6 @@
 from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
 class NPCGenerator:
     def __init__(self): # Initializer
@@ -8,7 +10,11 @@ class NPCGenerator:
         self.class_ = ''
         self.alignment = ''
         self.description = ''
-        self.client = OpenAI(api_key="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")
+
+        load_dotenv()  # Load environment variables from .env file
+        api_key = os.getenv("OPENAI_API_KEY")
+
+        self.client = OpenAI(api_key=api_key)
 
     def generate_health(self): # Generate a random health point value between 15 and 70
         try:

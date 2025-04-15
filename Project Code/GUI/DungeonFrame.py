@@ -2,13 +2,22 @@ import customtkinter as ctk
 import dungeonGen as dg
 from openai import OpenAI
 from threading import Thread
+import os
+from dotenv import load_dotenv
 
 class DungeonFrame(ctk.CTkFrame):
     def __init__(self, master, num_rooms):  # Initializer
         super().__init__(master)
         self.num_rooms = num_rooms  # Store the number of rooms
 
-        self.client = OpenAI(api_key="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")
+        # Load environment variables from .env file
+        load_dotenv()
+
+        # Retrieve the OpenAI API key from the .env file
+        api_key = os.getenv("OPENAI_API_KEY")
+
+        # Initialize the OpenAI client with the API key
+        self.client = OpenAI(api_key=api_key)
 
         self.canvas = ctk.CTkCanvas(self, width=400, height=400, bg="black")
         self.canvas.pack(pady=20)
@@ -111,7 +120,7 @@ class DungeonFrame(ctk.CTkFrame):
     def popout_description_box(self):  # Pop out the description box into a new window
         popout_window = ctk.CTkToplevel()  # Create a new Toplevel window
         popout_window.title("Room Descriptions")
-        popout_window.geometry("400x400")
+        popout_window.geometry("700x400")
         popout_window.attributes("-topmost", True)  # Keep the popout window on top
 
 
@@ -120,7 +129,7 @@ class DungeonFrame(ctk.CTkFrame):
         popout_label.pack(pady=10)
 
         # Add a textbox to the popout window
-        popout_textbox = ctk.CTkTextbox(popout_window, wrap="word", font=("Arial", 12))
+        popout_textbox = ctk.CTkTextbox(popout_window, wrap="word", font=("Arial", 14))
         popout_textbox.pack(pady=10, padx=10, fill="both", expand=True)
 
         # Copy the content from the main description box to the popout textbox

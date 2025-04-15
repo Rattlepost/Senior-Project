@@ -15,7 +15,7 @@ class TrackerFrame(ctk.CTkFrame):
     def create_widgets(self): # Create buttons and labels
         self.temp_label = ctk.CTkLabel(self, text='Character Tracker')
 
-        self.add_frame_button = ctk.CTkButton(self, text="Add Frame", command=self.add_new_npc)
+        self.add_frame_button = ctk.CTkButton(self, text="Add Character", command=self.add_new_npc)
         self.clear_roll_button = ctk.CTkButton(self, text="Clear Roll", command=self.clear_roll)
         self.roll_all_button = ctk.CTkButton(self, text="Roll All", command=self.roll_all)
         self.clear_npcs_button = ctk.CTkButton(self, text="Clear NPCs", command=self.clear_npcs)
