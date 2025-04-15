@@ -1,0 +1,11 @@
+Name: Wren Fireden, Race: Halfling, Class: Bard - College of Lore, Alignment: Chaotic Evil, Health Points: 32
+Name: Wren Fireden, Race: Halfling, Class: Bard - College of Lore, Alignment: Chaotic Evil, Health Points: 32
+Name: Marek Ramford, Race: Warforged, Class: Warlock - The Archfey, Alignment: Neutral Good, Health Points: 31
+Name: Marek Ramford, Race: Warforged, Class: Warlock - The Archfey, Alignment: Neutral Good, Health Points: 31
+Name: Marek Ramford, Race: Warforged, Class: Warlock - The Archfey, Alignment: Neutral Good, Health Points: 31
+Name: Marek Ramford, Race: Warforged, Class: Warlock - The Archfey, Alignment: Neutral Good, Health Points: 31
+Name: Raya Radcliffe, Race: Half-Orc, Class: Rogue - Assassin, Alignment: Chaotic Neutral, Health Points: 54
+Name: Raya Radcliffe, Race: Half-Orc, Class: Rogue - Assassin, Alignment: Chaotic Neutral, Health Points: 54
+Name: Raya Radcliffe, Race: Half-Orc, Class: Rogue - Assassin, Alignment: Chaotic Neutral, Health Points: 54
+Name: Raya Radcliffe, Race: Half-Orc, Class: Rogue - Assassin, Alignment: Chaotic Neutral, Health Points: 54
+Name: Riel Forrester, Race: Firbolg, Class: Monk - Way of the Long Death, Alignment: True Neutral, Health Points: 49
