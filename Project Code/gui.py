@@ -4,6 +4,7 @@ import DungeonFrame as DunFr
 import NotesFrame as NotesFr
 import TrackerFrame as TrackerFr
 import DiceFrame as DiceFr
+import WeatherFrame as WeatherFr
 
 
 class App(ctk.CTk):
@@ -54,12 +55,16 @@ class LeftFrame(
         self.button_dice = ctk.CTkButton(
             self, text="Dice Roller", command=lambda: right_frame.swap_frame("dice")
         )
+        self.button_weather = ctk.CTkButton(
+            self, text="Weather Generator", command=lambda: right_frame.swap_frame("weather")
+        )
 
     def create_layout(self):  # creates the layout for the buttons in the left frame
         self.button_dungeon.pack(pady=10)
         self.button_tracker.pack(pady=10)
         self.button_npc.pack(pady=10)
         self.button_dice.pack(pady=10)
+        self.button_weather.pack(pady=10)
 
 
 class RightFrame(
@@ -80,6 +85,7 @@ class RightFrame(
             self, num_rooms=5
         )  # Sets the defult number of rooms to 5
         self.dice = DiceFr.DiceRoller(self)
+        self.weather = WeatherFr.WeatherGenerator(self)
 
     def swap_frame(
         self, frame
@@ -89,6 +95,7 @@ class RightFrame(
         self.character.pack_forget()
         self.dungeon.pack_forget()
         self.dice.pack_forget()
+        self.weather.pack_forget()
 
         # Show the selected frame
         if frame == "dungeon":
@@ -99,6 +106,8 @@ class RightFrame(
             self.character.pack(side="left", fill="both", expand=True, padx=10, pady=10)
         elif frame == "dice":
             self.dice.pack(side="left", fill="both", expand=True, padx=10, pady=10)
+        elif frame == "weather":
+            self.weather.pack(side="left", fill="both", expand=True, padx=10, pady=10)
 
 
 App()

@@ -111,15 +111,15 @@ class CharacterFrame(ctk.CTkFrame):
     def get_npc_data(self):  # Gets the data for the specified entry
         return {
             "name": self.name_entry.get(),
-            "health": int(self.health_entry.get()),
-            "ac": int(self.ac_entry.get()),
-            "prof": int(self.prof_entry.get()),
-            "str": int(self.str_entry.get()),
-            "dex": int(self.dex_entry.get()),
-            "con": int(self.con_entry.get()),
-            "int": int(self.int_entry.get()),
-            "wis": int(self.wis_entry.get()),
-            "cha": int(self.cha_entry.get()),
+            "health": (self.health_entry.get()),
+            "ac": (self.ac_entry.get()),
+            "prof": (self.prof_entry.get()),
+            "str": (self.str_entry.get()),
+            "dex": (self.dex_entry.get()),
+            "con": (self.con_entry.get()),
+            "int": (self.int_entry.get()),
+            "wis": (self.wis_entry.get()),
+            "cha": (self.cha_entry.get()),
         }
 
     def delete_npc(self):  # Deletes the current NPC and saves the updated data

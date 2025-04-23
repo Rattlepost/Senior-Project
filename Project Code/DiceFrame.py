@@ -53,7 +53,11 @@ class DiceRoller(ctk.CTkFrame):
                 num, sides = map(
                     int, input_text.split("d")
                 )  # Split into number of dice and sides
-                if num > 0 and sides > 0:
+                if num > 1000:
+                    self.send_to_result_box(
+                        "Invalid: Number of dice too high (max 1000)"
+                    ) 
+                elif num > 0 and sides > 0:
                     self.roll_dice(sides, num)
                     self.history.append(input_text)  # Save the input to history
                     self.history_index = len(self.history)  # Reset the history index
